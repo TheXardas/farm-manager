@@ -1,5 +1,11 @@
 ## Small farm manager assessment task in NestJS and ReactJS
 
+# How to run
+- cd backend
+- npm run start
+- cd ../frontend
+- npm run start
+
 # Requirements
 Create a web application for farm management that consists of one page. It will be used only by one
 farmer. He/she can list, add, and remove animals in the system. Every animal has only a “Name”
@@ -12,4 +18,9 @@ the application locally.
 # Assumptions
 - Use in-memory in-application storage as DB
 - Tests are out of scope (OOS)
-- 
+
+# Todo
+- Beautiful layout
+- Run prettier
+- Tests?
+- Throttle requests
