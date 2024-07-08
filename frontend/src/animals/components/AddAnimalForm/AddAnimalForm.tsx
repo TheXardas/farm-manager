@@ -31,21 +31,26 @@ export default function AddAnimalForm(props: AddAnimalFormProps) {
   const onAnimalNameChanged = useCallback((newName: string) => {
     setAnimalName(newName);
     setError('');
-  }, [setAnimalName])
+  }, [setAnimalName]);
+
+  const disabled = animalName.trim().length === 0;
 
   const onSubmit = useCallback((e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    onCreateClick()
-  }, [onCreateClick])
+    if (disabled) return;
+    onCreateClick();
+  }, [onCreateClick, disabled]);
+
 
   return (
-    <div className={styles.wrapper}>
-      <form onSubmit={onSubmit}>
-        Add new animal: <TextInput innerRef={inputRef} value={animalName} onChange={onAnimalNameChanged}/>
-        <Button type="button" disabled={animalName.trim().length === 0} onClick={onCreateClick}>Create</Button>
+    <form onSubmit={onSubmit}>
+      <div className={styles.wrapper}>
+        <span>Add new animal: </span><TextInput innerRef={inputRef} value={animalName} onChange={onAnimalNameChanged}/>
+        <Button type="button" disabled={disabled} onClick={onCreateClick}>Create</Button>
         <span className={styles.error}>{error}</span>
-      </form>
-    </div>
-  );
+      </div>
+    </form>
+)
+  ;
 }

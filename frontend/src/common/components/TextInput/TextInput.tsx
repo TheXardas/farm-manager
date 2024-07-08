@@ -1,5 +1,5 @@
 import { ChangeEvent, Ref, useCallback } from 'react';
-
+import styles from './TextInput.module.css';
 type TextInputProps = {
   value: string;
   onChange: (newValue: string) => void;
@@ -12,6 +12,6 @@ export default function TextInput(props: TextInputProps) {
     onChange(event.target.value);
   }, [onChange])
   return (
-    <input ref={innerRef} autoFocus value={value} onChange={handleChange} />
+    <input className={styles.wrapper} ref={innerRef} autoFocus value={value} onChange={handleChange} />
   )
 }

@@ -11,7 +11,9 @@ export default function AnimalsListItem(props: AnimalsListItemProps) {
   const { animal, onRemove } = props;
   return (
     <div className={styles.wrapper}>
-      <DeleteAnimalButton animal={animal} onRemove={onRemove} /> 🪿 {animal.Name}
+      <DeleteAnimalButton animal={animal} onRemove={onRemove} />
+      <span>🪿</span>
+      <span>{animal.Name}</span>
     </div>
   );
 }
