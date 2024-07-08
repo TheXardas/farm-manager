@@ -1,14 +1,14 @@
-import config from '../../config';
+import config from "../../config";
 
 export class ApiService {
-  baseUrl = config.SERVER_URL
+  baseUrl = config.SERVER_URL;
 
   async fetch(method: string, url: string, body?: Object) {
     const options: RequestInit = {
       method,
       headers: {
-        'Content-type': 'application/json',
-      }
+        "Content-type": "application/json",
+      },
     };
     if (body) options.body = JSON.stringify(body);
     const res = await fetch(this.baseUrl + url, options);
@@ -19,15 +19,15 @@ export class ApiService {
   }
 
   get(url: string) {
-    return this.fetch('get', url);
+    return this.fetch("get", url);
   }
 
   post(url: string, body: Object) {
-    return this.fetch('post', url, body);
+    return this.fetch("post", url, body);
   }
 
   delete(url: string) {
-    return this.fetch('delete', url);
+    return this.fetch("delete", url);
   }
 }
 
